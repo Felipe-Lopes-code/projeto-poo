@@ -1,6 +1,7 @@
 package ProjetoMonstrosBatalhaPOO;
 
 public class GolpeMonstroBatalha {
+    /*
     private String nomeGolpeGrama1 = "Projetil de semente";
     private int poderGolpeGrama1 = 20;
     private String tipoGolpeGrama1 = "Grama";
@@ -53,5 +54,28 @@ public class GolpeMonstroBatalha {
     private String nomeGolpeTerrestre2 = "Terremoto";
     private int poderGolpeTerrestre2 = 25;
     private String tipoGolpeTerrestre2 = "Terrestre";
+    */
+    
+    private String nomeGolpeMonstro;
+    private int poderGolpeMonstro;
+    private String tipoGolpeMonstro;
+    
+    public void setGolpeMonstroBatalha(String nome, int poder, String tipo){
+        this.nomeGolpeMonstro = nome;
+        this.poderGolpeMonstro = poder;
+        this.tipoGolpeMonstro = tipo;
+    }
+    
+    public String getNometGolpeMonstro(){
+        return this.nomeGolpeMonstro;
+    }
+    
+    public int getPodertGolpeMonstro(){
+        return this.poderGolpeMonstro;
+    }
+    
+    public String getTipotGolpeMonstro(){
+        return this.tipoGolpeMonstro;
+    }
     
 }
