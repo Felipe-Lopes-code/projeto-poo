@@ -10,9 +10,12 @@ public class Main {
        MonstroBatalha monstroAmarelo = new MonstroBatalha("LaaLaa", "Eletrico", 135, 45, 50, 45, new GolpeMonstroBatalha("Cativeiro eletrico", 30, "Eletrico"), new GolpeMonstroBatalha("Bastao de pedra", 20, "Terrestre"));
        MonstroBatalha monstroMarrom = new MonstroBatalha("Evil Dipsy", "Terrestre", 140, 40, 40, 40, new GolpeMonstroBatalha("Terremoto", 25, "Terrestre"), new GolpeMonstroBatalha("Explosao aerea", 18, "Ar"));
        
-       //monstroVerde.setMonstroBatalha("Dipsy", "Grama", 100, 50, 50, 45, new GolpeMonstroBatalha("Projetil de semente", 20, "Grama"));
+       JogoMonstroBatalha gameMonstros = new JogoMonstroBatalha(monstroVerde, monstroVermelho, monstroAzul, monstroBranco, monstroAmarelo, monstroMarrom);
        
-       System.out.println(monstroVerde.getTipotGolpeMonstro());
+       gameMonstros.jogarMonstroBatalha();
+       
+       //monstroVerde.jogarMonstroBatalha();
+       //System.out.println(monstroAzul.getTipotGolpeMonstro());
     }
     
 }

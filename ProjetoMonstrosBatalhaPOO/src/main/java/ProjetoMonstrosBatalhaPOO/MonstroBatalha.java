@@ -81,4 +81,8 @@ public class MonstroBatalha {
     public GolpeMonstroBatalha getGolpeMonstroBatalha(){
         return this.golpeMonstroBatalha;
     }
+    
+    //public void jogarMonstroBatalha(){
+    //    System.out.println(this.nomeMonstro);
+    //}
 }
