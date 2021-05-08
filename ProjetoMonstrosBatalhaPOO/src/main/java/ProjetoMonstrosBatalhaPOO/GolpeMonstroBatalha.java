@@ -1,6 +1,6 @@
 package ProjetoMonstrosBatalhaPOO;
 
-public class GolpeMonstroBatalha {
+public final class GolpeMonstroBatalha {
     /*
     private String nomeGolpeGrama1 = "Projetil de semente";
     private int poderGolpeGrama1 = 20;
@@ -59,6 +59,10 @@ public class GolpeMonstroBatalha {
     private String nomeGolpeMonstro;
     private int poderGolpeMonstro;
     private String tipoGolpeMonstro;
+
+    public GolpeMonstroBatalha(String nomeGolpeMonstro, int poderGolpeMonstro, String tipoGolpeMonstro) {
+        this.setGolpeMonstroBatalha(nomeGolpeMonstro, poderGolpeMonstro, tipoGolpeMonstro);
+    }
     
     public void setGolpeMonstroBatalha(String nome, int poder, String tipo){
         this.nomeGolpeMonstro = nome;
