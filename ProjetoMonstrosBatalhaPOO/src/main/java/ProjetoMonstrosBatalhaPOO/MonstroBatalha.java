@@ -77,6 +77,18 @@ public class MonstroBatalha {
     }
     
     
+    public String getNometGolpeMonstro2(){
+        return this.golpeMonstroBatalha2.getNometGolpeMonstro();
+    }
+    
+    public int getPodertGolpeMonstro2(){
+        return this.golpeMonstroBatalha2.getPodertGolpeMonstro();
+    }
+    
+    public String getTipotGolpeMonstro2(){
+        return this.golpeMonstroBatalha2.getTipotGolpeMonstro();
+    }
+    
     
     public GolpeMonstroBatalha getGolpeMonstroBatalha(){
         return this.golpeMonstroBatalha;
