@@ -82,11 +82,24 @@ public class JogoMonstroBatalha {
         for(int i = 0; i < 3; i++){
             System.out.printf("%do Monstro: \n", i+1);
             escolhaJogador1[i] = Integer.parseInt(entrada.nextLine());
-            while(escolhaJogador1[i] != 1 || escolhaJogador1[i] != 2 || escolhaJogador1[i] != 3 || escolhaJogador1[i] != 4 || escolhaJogador1[i] != 5 || escolhaJogador1[i] != 6){
+
+            while(escolhaJogador1[i] != 1 && escolhaJogador1[i] != 2 && escolhaJogador1[i] != 3 && escolhaJogador1[i] != 4 && escolhaJogador1[i] != 5 && escolhaJogador1[i] != 6){
                 System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Monstro desejado: ");
                 escolhaJogador1[i] = Integer.parseInt(entrada.nextLine());
+            }
+            //System.out.println(escolhaJogador1[i]);
         }
-            System.out.println(escolhaJogador1[i]);
+
+        System.out.println("\nJOGADOR 2, escolha seus 3 monstros de batalha de acordo com o seu respectivo numero");
+        
+        for(int i = 0; i < 3; i++){
+            System.out.printf("%do Monstro: \n", i+1);
+            escolhaJogador2[i] = Integer.parseInt(entrada.nextLine());
+
+            while(escolhaJogador2[i] != 1 && escolhaJogador2[i] != 2 && escolhaJogador2[i] != 3 && escolhaJogador2[i] != 4 && escolhaJogador2[i] != 5 && escolhaJogador2[i] != 6){
+                System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Monstro desejado: ");
+                escolhaJogador2[i] = Integer.parseInt(entrada.nextLine());
+            }
         }
         
     }
