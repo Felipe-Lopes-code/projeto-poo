@@ -25,6 +25,9 @@ public class JogoMonstroBatalha {
     public void jogarMonstroBatalha(){
         int[] escolhaJogador1 = new int[3];
         int[] escolhaJogador2 = new int[3];
+
+        int escolhaMonstroJogador1, escolhaMonstroJogador2;
+
         int acaoJogador1, acaoJogador2, monstroBatalhandoJog1, monstroBatalhandoJog2, monstrosVivosJogador1 = 3, monstrosVivosJogador2 = 3;
         MonstroBatalha[] monstrosJogador1 = new MonstroBatalha[3];
         MonstroBatalha[] monstrosJogador2 = new MonstroBatalha[3];
@@ -83,30 +86,37 @@ public class JogoMonstroBatalha {
         
         for(int i = 0; i < 3; i++){
             System.out.printf("%do Monstro: \n", i+1);
-            escolhaJogador1[i] = Integer.parseInt(entrada.nextLine());
+            escolhaMonstroJogador1 = Integer.parseInt(entrada.nextLine());
 
-            while(escolhaJogador1[i] != 1 && escolhaJogador1[i] != 2 && escolhaJogador1[i] != 3 && escolhaJogador1[i] != 4 && escolhaJogador1[i] != 5 && escolhaJogador1[i] != 6){
+            while(escolhaMonstroJogador1 != 1 && escolhaMonstroJogador1 != 2 && escolhaMonstroJogador1 != 3 && escolhaMonstroJogador1 != 4 && escolhaJogador1[i] != 5 && escolhaMonstroJogador1 != 6){
                 System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Monstro desejado: ");
-                escolhaJogador1[i] = Integer.parseInt(entrada.nextLine());
+                escolhaMonstroJogador1 = Integer.parseInt(entrada.nextLine());
             }
 
-            switch(escolhaJogador1[i]){
+            switch(escolhaMonstroJogador1){
               case 1:
                 monstrosJogador1[i] = this.monstro1;
+                System.out.println(monstrosJogador1[i].getNomeMonstro());
+                break;
               case 2:
                 monstrosJogador1[i] = this.monstro2;
+                System.out.println(monstrosJogador1[i].getNomeMonstro());
+                break;
               case 3:
                 monstrosJogador1[i] = this.monstro3;
+                break;
               case 4:
                 monstrosJogador1[i] = this.monstro4;
+                break;
               case 5:
                 monstrosJogador1[i] = this.monstro5;
+                break;
               case 6:
                 monstrosJogador1[i] = this.monstro6;
+                break;
             }
 
-
-            //System.out.println(escolhaJogador1[i]);
+            System.out.println(monstrosJogador1[i].getNomeMonstro());
         }
 
         System.out.println("\nJOGADOR 2, escolha seus 3 monstros de batalha de acordo com o seu respectivo numero");
@@ -123,17 +133,26 @@ public class JogoMonstroBatalha {
             switch(escolhaJogador2[i]){
               case 1:
                 monstrosJogador2[i] = this.monstro1;
+                break;
               case 2:
                 monstrosJogador2[i] = this.monstro2;
+                break;
               case 3:
                 monstrosJogador2[i] = this.monstro3;
+                break;
               case 4:
                 monstrosJogador2[i] = this.monstro4;
+                break;
               case 5:
                 monstrosJogador2[i] = this.monstro5;
+                break;
               case 6:
                 monstrosJogador2[i] = this.monstro6;
+                break;
             }
+
+            System.out.println(this.monstro1.getNomeMonstro());
+            System.out.println(monstrosJogador1[i].getNomeMonstro());
         }
 
         System.out.println("+++++++++++++++++++++ INICIO DA BATALHA +++++++++++++++++++++");
