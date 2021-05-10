@@ -83,7 +83,7 @@ public class JogoMonstroBatalha {
             System.out.printf("%do Monstro: \n", i+1);
             escolhaJogador1[i] = Integer.parseInt(entrada.nextLine());
             while(escolhaJogador1[i] != 1 || escolhaJogador1[i] != 2 || escolhaJogador1[i] != 3 || escolhaJogador1[i] != 4 || escolhaJogador1[i] != 5 || escolhaJogador1[i] != 6){
-                System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o número do Monstro desejado: ");
+                System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Monstro desejado: ");
                 escolhaJogador1[i] = Integer.parseInt(entrada.nextLine());
         }
             System.out.println(escolhaJogador1[i]);

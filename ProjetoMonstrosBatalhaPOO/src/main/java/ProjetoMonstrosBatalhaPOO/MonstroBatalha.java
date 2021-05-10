@@ -1,6 +1,5 @@
 package ProjetoMonstrosBatalhaPOO;
 
-
 public class MonstroBatalha {
     private String nomeMonstro;
     private String tipoMonstro;
@@ -36,6 +35,12 @@ public class MonstroBatalha {
         this.golpeMonstroBatalha = golpeMonstroBatalha;
         this.golpeMonstroBatalha2 = golpeMonstroBatalha2;
     }
+
+    ////////////////////////////////////////////////
+    public void setVidaMonstro(int vidaMonstro){
+      this.vidaMonstro = vidaMonstro;
+    }
+    ////////////////////////////////////////////////
           
     
     public String getNomeMonstro(){
