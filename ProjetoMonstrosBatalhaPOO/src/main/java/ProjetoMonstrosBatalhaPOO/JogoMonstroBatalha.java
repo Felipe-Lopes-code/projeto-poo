@@ -1,6 +1,5 @@
 package ProjetoMonstrosBatalhaPOO;
 
-
 import java.util.Scanner;
 
 public class JogoMonstroBatalha {
@@ -26,7 +25,7 @@ public class JogoMonstroBatalha {
     public void jogarMonstroBatalha(){
         int[] escolhaJogador1 = new int[3];
         int[] escolhaJogador2 = new int[3];
-        int acaoJogador1, acaoJogador2, monstroBatalhandoJog1, monstroBatalhandoJog2;
+        int acaoJogador1, acaoJogador2, monstroBatalhandoJog1, monstroBatalhandoJog2, monstrosVivosJogador1 = 3, monstrosVivosJogador2 = 3;
         MonstroBatalha[] monstrosJogador1 = new MonstroBatalha[3];
         MonstroBatalha[] monstrosJogador2 = new MonstroBatalha[3];
         
@@ -139,8 +138,49 @@ public class JogoMonstroBatalha {
 
         System.out.println("+++++++++++++++++++++ INICIO DA BATALHA +++++++++++++++++++++");
 
-        System.out.println("JOGADOR 1, escolha o monstro que irá batalhar: ");
+        System.out.println("\nJOGADOR 1, escolha o monstro que irá batalhar: ");
+        System.out.println("(1) 1o monstro escolhido \n(2) 2o monstro escollhido \n(3) 3o monstro escolhido");
         
+        monstroBatalhandoJog1 = Integer.parseInt(entrada.nextLine());
+        
+        while(monstroBatalhandoJog1 != 1 && monstroBatalhandoJog1 != 2 && monstroBatalhandoJog1 != 3){
+          System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Monstro desejado: ");
+                monstroBatalhandoJog1 = Integer.parseInt(entrada.nextLine());
+        }
+
+        System.out.println("\nJOGADOR 2, escolha o monstro que irá batalhar: ");
+        System.out.println("(1) 1o monstro escolhido \n(2) 2o monstro escollhido \n(3) 3o monstro escolhido");
+        
+        monstroBatalhandoJog2 = Integer.parseInt(entrada.nextLine());
+        
+        while(monstroBatalhandoJog2 != 1 && monstroBatalhandoJog2 != 2 && monstroBatalhandoJog2 != 3){
+          System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Monstro desejado: ");
+                monstroBatalhandoJog2 = Integer.parseInt(entrada.nextLine());
+        }
+
+        while(monstrosVivosJogador1 > 0 && monstrosVivosJogador2 > 0){
+          System.out.println("\nJOGADOR 1, o que deseja fazer? \n(1) - ATACAR \n(2) - TROCAR DE MONSTRO");
+          acaoJogador1 = Integer.parseInt(entrada.nextLine());
+
+          while(acaoJogador1 != 1 && acaoJogador1 != 2){
+          System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Monstro desejado: ");
+                acaoJogador1 = Integer.parseInt(entrada.nextLine());
+          }
+
+          System.out.println("\nJOGADOR 2, o que deseja fazer? \n(1) - ATACAR \n(2) - TROCAR DE MONSTRO");
+          acaoJogador2 = Integer.parseInt(entrada.nextLine());
+
+          while(acaoJogador2 != 1 && acaoJogador2 != 2){
+          System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Monstro desejado: ");
+                acaoJogador2 = Integer.parseInt(entrada.nextLine());
+          }
+
+        }
+
     }
+        
+        //System.out.println();
+        
+    
             
 }
