@@ -175,6 +175,52 @@ public class JogoMonstroBatalha {
                 acaoJogador2 = Integer.parseInt(entrada.nextLine());
           }
 
+          if(acaoJogador1 == 2 || acaoJogador2 == 2){
+            if(acaoJogador1 == 2){
+              System.out.println("\nJOGADOR 1, escolha o monstro que irá batalhar: ");
+              System.out.println("(1) 1o monstro escolhido \n(2) 2o monstro escollhido \n(3) 3o monstro escolhido");
+              
+              monstroBatalhandoJog1 = Integer.parseInt(entrada.nextLine());
+              
+              while(monstroBatalhandoJog1 != 1 && monstroBatalhandoJog1 != 2 && monstroBatalhandoJog1 != 3){
+                System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Monstro desejado: ");
+                      monstroBatalhandoJog1 = Integer.parseInt(entrada.nextLine());
+              }
+            }
+
+            if(acaoJogador2 == 2){
+              System.out.println("\nJOGADOR 2, escolha o monstro que irá batalhar: ");
+              System.out.println("(1) 1o monstro escolhido \n(2) 2o monstro escollhido \n(3) 3o monstro escolhido");
+              
+              monstroBatalhandoJog2 = Integer.parseInt(entrada.nextLine());
+              
+              while(monstroBatalhandoJog2 != 1 && monstroBatalhandoJog2 != 2 && monstroBatalhandoJog2 != 3){
+                System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Monstro desejado: ");
+                      monstroBatalhandoJog2 = Integer.parseInt(entrada.nextLine());
+              }
+            }
+          }
+          else if(acaoJogador1 == 1){
+
+            ////////////////////////////////////////////////////////////////////////////////////
+
+            System.out.println(monstrosJogador1[monstroBatalhandoJog1 - 1].getNomeMonstro());
+            System.out.println(monstrosJogador1[monstroBatalhandoJog1 - 1].getForcaMonstro());
+
+            System.out.println(monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro());
+            System.out.println(monstrosJogador2[monstroBatalhandoJog2 - 1].getDefesaMonstro());
+
+            ///////////////////////////////////////////////////////////////////////////////////
+
+            /*
+            if(monstrosJogador1[monstroBatalhandoJog1 - 1].getForcaMonstro() > monstrosJogador2[monstroBatalhandoJog2 - 1].getDefesaMonstro()){
+              //monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro() -= monstrosJogador1[monstroBatalhandoJog1 - 1].getPodertGolpeMonstro();
+
+              System.out.println(monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro());
+            }*/
+          }
+          
+
         }
 
     }
