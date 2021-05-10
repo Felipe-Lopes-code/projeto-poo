@@ -1,5 +1,6 @@
 package ProjetoMonstrosBatalhaPOO;
 
+
 import java.util.Scanner;
 
 public class JogoMonstroBatalha {
@@ -23,9 +24,11 @@ public class JogoMonstroBatalha {
     }
     
     public void jogarMonstroBatalha(){
-        int[] escolhaJogador1 = new int[6];
-        int[] escolhaJogador2 = new int[6];
-        
+        int[] escolhaJogador1 = new int[3];
+        int[] escolhaJogador2 = new int[3];
+        int acaoJogador1, acaoJogador2, monstroBatalhandoJog1, monstroBatalhandoJog2;
+        MonstroBatalha[] monstrosJogador1 = new MonstroBatalha[3];
+        MonstroBatalha[] monstrosJogador2 = new MonstroBatalha[3];
         
         System.out.println("=====================================================================================================================================");
         System.out.println("                                                    TABELA MOSNTRO DE BATALHA");
@@ -87,6 +90,23 @@ public class JogoMonstroBatalha {
                 System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Monstro desejado: ");
                 escolhaJogador1[i] = Integer.parseInt(entrada.nextLine());
             }
+
+            switch(escolhaJogador1[i]){
+              case 1:
+                monstrosJogador1[i] = this.monstro1;
+              case 2:
+                monstrosJogador1[i] = this.monstro2;
+              case 3:
+                monstrosJogador1[i] = this.monstro3;
+              case 4:
+                monstrosJogador1[i] = this.monstro4;
+              case 5:
+                monstrosJogador1[i] = this.monstro5;
+              case 6:
+                monstrosJogador1[i] = this.monstro6;
+            }
+
+
             //System.out.println(escolhaJogador1[i]);
         }
 
@@ -100,7 +120,26 @@ public class JogoMonstroBatalha {
                 System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Monstro desejado: ");
                 escolhaJogador2[i] = Integer.parseInt(entrada.nextLine());
             }
+
+            switch(escolhaJogador2[i]){
+              case 1:
+                monstrosJogador2[i] = this.monstro1;
+              case 2:
+                monstrosJogador2[i] = this.monstro2;
+              case 3:
+                monstrosJogador2[i] = this.monstro3;
+              case 4:
+                monstrosJogador2[i] = this.monstro4;
+              case 5:
+                monstrosJogador2[i] = this.monstro5;
+              case 6:
+                monstrosJogador2[i] = this.monstro6;
+            }
         }
+
+        System.out.println("+++++++++++++++++++++ INICIO DA BATALHA +++++++++++++++++++++");
+
+        System.out.println("JOGADOR 1, escolha o monstro que irá batalhar: ");
         
     }
             
