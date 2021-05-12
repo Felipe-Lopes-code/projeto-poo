@@ -36,11 +36,9 @@ public class MonstroBatalha {
         this.golpeMonstroBatalha2 = golpeMonstroBatalha2;
     }
 
-    ////////////////////////////////////////////////
     public void setVidaMonstro(int vidaMonstro){
       this.vidaMonstro = vidaMonstro;
     }
-    ////////////////////////////////////////////////
           
     
     public String getNomeMonstro(){
@@ -99,7 +97,4 @@ public class MonstroBatalha {
         return this.golpeMonstroBatalha;
     }
     
-    //public void jogarMonstroBatalha(){
-    //    System.out.println(this.nomeMonstro);
-    //}
 }

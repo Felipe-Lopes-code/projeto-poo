@@ -290,7 +290,7 @@ public class JogoMonstroBatalha {
             }
             
             if(golpeMonstroJogador1 == 1){
-                if(monstrosJogador1[monstroBatalhandoJog1 - 1].getForcaMonstro() > 0 && monstrosJogador2[monstroBatalhandoJog2 - 1].getDefesaMonstro() > 0){//if(monstrosJogador1[monstroBatalhandoJog1 - 1].getForcaMonstro() >= monstrosJogador2[monstroBatalhandoJog2 - 1].getDefesaMonstro()){
+                if(monstrosJogador1[monstroBatalhandoJog1 - 1].getForcaMonstro() >= monstrosJogador2[monstroBatalhandoJog2 - 1].getDefesaMonstro()){
 
                 monstrosJogador2[monstroBatalhandoJog2 - 1].setVidaMonstro(monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro() - monstrosJogador1[monstroBatalhandoJog1 - 1].getPodertGolpeMonstro());
 
@@ -360,13 +360,13 @@ public class JogoMonstroBatalha {
                 superEfetivoJogador1 = 0;
               }
               else{
-                System.out.println("Monstro do JOGADOR 2 não sofreu dano...");
+                System.out.println("Monstro do JOGADOR 2 nao sofreu dano...");
               }
                 
             }
             
             else if(golpeMonstroJogador1 == 2){
-              if(monstrosJogador1[monstroBatalhandoJog1 - 1].getForcaMonstro() > 0 && monstrosJogador2[monstroBatalhandoJog2 - 1].getDefesaMonstro() > 0){//if(monstrosJogador1[monstroBatalhandoJog1 - 1].getForcaMonstro() >= monstrosJogador2[monstroBatalhandoJog2 - 1].getDefesaMonstro()){
+              if(monstrosJogador1[monstroBatalhandoJog1 - 1].getForcaMonstro() >= monstrosJogador2[monstroBatalhandoJog2 - 1].getDefesaMonstro()){
 
                 monstrosJogador2[monstroBatalhandoJog2 - 1].setVidaMonstro(monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro() - monstrosJogador1[monstroBatalhandoJog1 - 1].getPodertGolpeMonstro2());
 
@@ -438,7 +438,7 @@ public class JogoMonstroBatalha {
               }
 
               else{
-                System.out.println("Monstro do JOGADOR 2 não sofreu dano...");
+                System.out.println("Monstro do JOGADOR 2 nao sofreu dano...");
               }
             
             }
@@ -455,7 +455,7 @@ public class JogoMonstroBatalha {
               }
               
               if(golpeMonstroJogador2 == 1){
-                  if(monstrosJogador2[monstroBatalhandoJog2 - 1].getForcaMonstro() > 0 && monstrosJogador1[monstroBatalhandoJog1 - 1].getDefesaMonstro() > 0){//if(monstrosJogador2[monstroBatalhandoJog2 - 1].getForcaMonstro() >= monstrosJogador1[monstroBatalhandoJog1 - 1].getDefesaMonstro()){
+                  if(monstrosJogador2[monstroBatalhandoJog2 - 1].getForcaMonstro() >= monstrosJogador1[monstroBatalhandoJog1 - 1].getDefesaMonstro()){
 
                   monstrosJogador1[monstroBatalhandoJog1 - 1].setVidaMonstro(monstrosJogador1[monstroBatalhandoJog1 - 1].getVidaMonstro() - monstrosJogador2[monstroBatalhandoJog1 - 1].getPodertGolpeMonstro());
 
@@ -526,13 +526,13 @@ public class JogoMonstroBatalha {
                 }
 
                 else{
-                  System.out.println("Monstro do JOGADOR 2 não sofreu dano...");
+                  System.out.println("Monstro do JOGADOR 1 nao sofreu dano...");
                 }
                   
               }
               
               else if(golpeMonstroJogador2 == 2){
-                if(monstrosJogador2[monstroBatalhandoJog2 - 1].getForcaMonstro() > 0 && monstrosJogador1[monstroBatalhandoJog1 - 1].getDefesaMonstro() > 0){//if(monstrosJogador2[monstroBatalhandoJog2 - 1].getForcaMonstro() >= monstrosJogador1[monstroBatalhandoJog1 - 1].getDefesaMonstro()){
+                if(monstrosJogador2[monstroBatalhandoJog2 - 1].getForcaMonstro() >= monstrosJogador1[monstroBatalhandoJog1 - 1].getDefesaMonstro()){
 
                   monstrosJogador1[monstroBatalhandoJog1 - 1].setVidaMonstro(monstrosJogador1[monstroBatalhandoJog1 - 1].getVidaMonstro() - monstrosJogador2[monstroBatalhandoJog2 - 1].getPodertGolpeMonstro2());
 
@@ -604,7 +604,7 @@ public class JogoMonstroBatalha {
                 }
 
                 else{
-                  System.out.println("Monstro do JOGADOR 2 não sofreu dano...");
+                  System.out.println("Monstro do JOGADOR 1 nao sofreu dano...");
                 }
               
               }
@@ -630,7 +630,7 @@ public class JogoMonstroBatalha {
             }
             
             if(golpeMonstroJogador2 == 1){
-                if(monstrosJogador2[monstroBatalhandoJog2 - 1].getForcaMonstro() > 0 && monstrosJogador1[monstroBatalhandoJog1 - 1].getDefesaMonstro() > 0){//if(monstrosJogador2[monstroBatalhandoJog2 - 1].getForcaMonstro() >= monstrosJogador1[monstroBatalhandoJog1 - 1].getDefesaMonstro()){
+                if(monstrosJogador2[monstroBatalhandoJog2 - 1].getForcaMonstro() >= monstrosJogador1[monstroBatalhandoJog1 - 1].getDefesaMonstro()){
 
                 monstrosJogador1[monstroBatalhandoJog1 - 1].setVidaMonstro(monstrosJogador1[monstroBatalhandoJog1 - 1].getVidaMonstro() - monstrosJogador2[monstroBatalhandoJog1 - 1].getPodertGolpeMonstro());
 
@@ -701,13 +701,13 @@ public class JogoMonstroBatalha {
               }
 
               else{
-                System.out.println("Monstro do JOGADOR 2 não sofreu dano...");
+                System.out.println("Monstro do JOGADOR 1 nao sofreu dano...");
               }
                 
             }
            
             else if(golpeMonstroJogador2 == 2){
-              if(monstrosJogador2[monstroBatalhandoJog2 - 1].getForcaMonstro() > 0 && monstrosJogador1[monstroBatalhandoJog1 - 1].getDefesaMonstro() > 0){//if(monstrosJogador2[monstroBatalhandoJog2 - 1].getForcaMonstro() >= monstrosJogador1[monstroBatalhandoJog1 - 1].getDefesaMonstro()){
+              if(monstrosJogador2[monstroBatalhandoJog2 - 1].getForcaMonstro() >= monstrosJogador1[monstroBatalhandoJog1 - 1].getDefesaMonstro()){
 
                 monstrosJogador1[monstroBatalhandoJog1 - 1].setVidaMonstro(monstrosJogador1[monstroBatalhandoJog1 - 1].getVidaMonstro() - monstrosJogador2[monstroBatalhandoJog2 - 1].getPodertGolpeMonstro2());
 
@@ -779,7 +779,7 @@ public class JogoMonstroBatalha {
               }
 
               else{
-                System.out.println("Monstro do JOGADOR 2 não sofreu dano...");
+                System.out.println("Monstro do JOGADOR 1 nao sofreu dano...");
               }
             
             }
@@ -796,7 +796,7 @@ public class JogoMonstroBatalha {
               }
               
               if(golpeMonstroJogador1 == 1){
-                  if(monstrosJogador1[monstroBatalhandoJog1 - 1].getForcaMonstro() > 0 && monstrosJogador2[monstroBatalhandoJog2 - 1].getDefesaMonstro() > 0){//if(monstrosJogador1[monstroBatalhandoJog1 - 1].getForcaMonstro() >= monstrosJogador2[monstroBatalhandoJog2 - 1].getDefesaMonstro()){
+                  if(monstrosJogador1[monstroBatalhandoJog1 - 1].getForcaMonstro() >= monstrosJogador2[monstroBatalhandoJog2 - 1].getDefesaMonstro()){
 
                   monstrosJogador2[monstroBatalhandoJog2 - 1].setVidaMonstro(monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro() - monstrosJogador1[monstroBatalhandoJog1 - 1].getPodertGolpeMonstro());
 
@@ -866,13 +866,13 @@ public class JogoMonstroBatalha {
                   superEfetivoJogador1 = 0;
                 }
                 else{
-                  System.out.println("Monstro do JOGADOR 2 não sofreu dano...");
+                  System.out.println("Monstro do JOGADOR 2 nao sofreu dano...");
                 }
                   
               }
               
               else if(golpeMonstroJogador1 == 2){
-                if(monstrosJogador1[monstroBatalhandoJog1 - 1].getForcaMonstro() > 0 && monstrosJogador2[monstroBatalhandoJog2 - 1].getDefesaMonstro() > 0){//if(monstrosJogador1[monstroBatalhandoJog1 - 1].getForcaMonstro() >= monstrosJogador2[monstroBatalhandoJog2 - 1].getDefesaMonstro()){
+                if(monstrosJogador1[monstroBatalhandoJog1 - 1].getForcaMonstro() >= monstrosJogador2[monstroBatalhandoJog2 - 1].getDefesaMonstro()){
 
                   monstrosJogador2[monstroBatalhandoJog2 - 1].setVidaMonstro(monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro() - monstrosJogador1[monstroBatalhandoJog1 - 1].getPodertGolpeMonstro2());
 
@@ -944,7 +944,7 @@ public class JogoMonstroBatalha {
                 }
 
                 else{
-                  System.out.println("Monstro do JOGADOR 2 não sofreu dano...");
+                  System.out.println("Monstro do JOGADOR 2 nao sofreu dano...");
                 }
               
               }
