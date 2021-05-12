@@ -21,14 +21,15 @@ public class JogoMonstroBatalha {
         this.monstro5 = monstro5;
         this.monstro6 = monstro6;
     }
+
     
     public void jogarMonstroBatalha(){
         int[] escolhaMonstroJogador1 = new int[3];
         int[] escolhaMonstroJogador2 = new int[3];
 
-        int golpeMonstroJogador1, golpeMonstroJogador2;
+        int golpeMonstroJogador1, golpeMonstroJogador2, vezJogador1Atacar = 1, vezJogador2Atacar = 0;
         int acaoJogador1, acaoJogador2, monstroBatalhandoJog1, monstroBatalhandoJog2, monstrosVivosJogador1 = 3, monstrosVivosJogador2 = 3;
-        int danoJogador1, danoJogador2, superEfetivoJogador1 = 0, superEfetivoJogador2 = 0;
+        int superEfetivoJogador1 = 0, superEfetivoJogador2 = 0;
         
         MonstroBatalha[] monstrosJogador1 = new MonstroBatalha[3];
         MonstroBatalha[] monstrosJogador2 = new MonstroBatalha[3];
@@ -52,8 +53,8 @@ public class JogoMonstroBatalha {
         System.out.printf("DEFESA\t\t" + this.monstro1.getDefesaMonstro() + "\t\t\t" + this.monstro2.getDefesaMonstro() + "\t\t" + this.monstro3.getDefesaMonstro() + "\t\t");
         System.out.println(this.monstro4.getDefesaMonstro() + "\t\t" + this.monstro5.getDefesaMonstro() + "\t\t\t" + this.monstro6.getDefesaMonstro());
         
-        System.out.printf("VELOCIDADE\t" + this.monstro1.getVidaMonstro() + "\t\t\t" + this.monstro2.getVidaMonstro() + "\t\t" + this.monstro3.getVidaMonstro() + "\t\t");
-        System.out.println(this.monstro4.getVidaMonstro() + "\t\t" + this.monstro5.getVidaMonstro() + "\t\t\t" + this.monstro6.getVidaMonstro());
+        System.out.printf("VELOCIDADE\t" + this.monstro1.getVelocidadeMonstro() + "\t\t\t" + this.monstro2.getVelocidadeMonstro() + "\t\t" + this.monstro3.getVelocidadeMonstro() + "\t\t");
+        System.out.println(this.monstro4.getVelocidadeMonstro() + "\t\t" + this.monstro5.getVelocidadeMonstro() + "\t\t\t" + this.monstro6.getVelocidadeMonstro());
         
         System.out.println("_____________________________________________________________________________________________________________________________________");
         System.out.println("                                                             GOLPES");
@@ -93,7 +94,7 @@ public class JogoMonstroBatalha {
                 System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Monstro desejado: ");
                 escolhaMonstroJogador1[i] = Integer.parseInt(entrada.nextLine());
             }
-/////////////////////////////// TRANSFORMAR "escolhaMonstroJogador1" em vetor e depois fazer a comparação dos indices, para que não sejam escolhidos monstros iguais
+
             while(i == 1 && escolhaMonstroJogador1[i] == escolhaMonstroJogador1[i-1] || i == 2 && escolhaMonstroJogador1[i] == escolhaMonstroJogador1[i-1] || i == 2 && escolhaMonstroJogador1[i] == escolhaMonstroJogador1[i-2]){
 
               System.out.println("OPCAO INVALIDA! VOCE PRECISA ESCOLHER MONSTROS DIFERENTES UM DO OUTRO. Digite o numero do Monstro desejado: ");
@@ -231,13 +232,54 @@ public class JogoMonstroBatalha {
               }
 
             }
+            continue;
           }
-          /*
+          
           else if(acaoJogador1 == 1 && acaoJogador2 == 1){
             System.out.println("AMBOS ATACAM");
+            if(monstrosJogador1[monstroBatalhandoJog1-1].getVelocidadeMonstro() > monstrosJogador2[monstroBatalhandoJog2-1].getVelocidadeMonstro()){
+              vezJogador1Atacar = 1;
+              vezJogador2Atacar = 2;
+
+              System.out.println("MONSTRO DO JOGADOR 1 EH MAIS RAPIDO");
+
+            }
+            else if(monstrosJogador1[monstroBatalhandoJog1-1].getVelocidadeMonstro() < monstrosJogador2[monstroBatalhandoJog2-1].getVelocidadeMonstro()){
+              vezJogador1Atacar = 2;
+              vezJogador2Atacar = 1;
+
+              System.out.println("MONSTRO DO JOGADOR 2 EH MAIS RAPIDO");
+
+            }
+            else if(monstrosJogador1[monstroBatalhandoJog1-1].getForcaMonstro() > monstrosJogador2[monstroBatalhandoJog2-1].getForcaMonstro()){
+              vezJogador1Atacar = 1;
+              vezJogador2Atacar = 2;
+
+              System.out.println("MONSTRO DO JOGADOR 1 POSSUI MAIS FORCA");
+
+            }
+            else if(monstrosJogador1[monstroBatalhandoJog1-1].getForcaMonstro() < monstrosJogador2[monstroBatalhandoJog2-1].getForcaMonstro()){
+              vezJogador1Atacar = 2;
+              vezJogador2Atacar = 1;
+
+              System.out.println("MONSTRO DO JOGADOR 2 POSSUI MAIS FORCA");
+            }
+            else if(monstrosJogador1[monstroBatalhandoJog1-1].getDefesaMonstro() > monstrosJogador2[monstroBatalhandoJog2-1].getDefesaMonstro()){
+              vezJogador1Atacar = 1;
+              vezJogador2Atacar = 2;
+
+              System.out.println("MONSTRO DO JOGADOR 1 POSSUI MAIOR DEFESA");
+            }
+            else if(monstrosJogador1[monstroBatalhandoJog1-1].getDefesaMonstro() < monstrosJogador2[monstroBatalhandoJog2-1].getDefesaMonstro()){
+              vezJogador1Atacar = 2;
+              vezJogador2Atacar = 1;
+
+              System.out.println("MONSTRO DO JOGADOR 2 POSSUI MAIOR DEFESA");
+            }
           }
-          */
-          else if(acaoJogador1 == 1){
+          
+          
+          if(acaoJogador1 == 1 && vezJogador1Atacar == 1){//else if(acaoJogador1 == 1){
             
             System.out.println("\nJOGADOR 1, SELECIONE O GOLPE DESEJADO: \n(1) - Golpe 1 \n(2) - Golpe 2");
             golpeMonstroJogador1 = Integer.parseInt(entrada.nextLine());
@@ -317,9 +359,12 @@ public class JogoMonstroBatalha {
                 }
                 superEfetivoJogador1 = 0;
               }
+              else{
+                System.out.println("Monstro do JOGADOR 2 não sofreu dano...");
+              }
                 
             }
-            ///// VERIFICAR
+            
             else if(golpeMonstroJogador1 == 2){
               if(monstrosJogador1[monstroBatalhandoJog1 - 1].getForcaMonstro() > 0 && monstrosJogador2[monstroBatalhandoJog2 - 1].getDefesaMonstro() > 0){//if(monstrosJogador1[monstroBatalhandoJog1 - 1].getForcaMonstro() >= monstrosJogador2[monstroBatalhandoJog2 - 1].getDefesaMonstro()){
 
@@ -391,14 +436,190 @@ public class JogoMonstroBatalha {
                 superEfetivoJogador1 = 0;
                 
               }
+
+              else{
+                System.out.println("Monstro do JOGADOR 2 não sofreu dano...");
+              }
             
             }
 
+
+            if(vezJogador1Atacar == 1){
+
+              System.out.println("\nJOGADOR 2, SELECIONE O GOLPE DESEJADO: \n(1) - Golpe 1 \n(2) - Golpe 2");
+              golpeMonstroJogador2 = Integer.parseInt(entrada.nextLine());
+              
+              while(golpeMonstroJogador2 != 1 && golpeMonstroJogador2 != 2){
+              System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Golpe desejado: ");
+                    golpeMonstroJogador2 = Integer.parseInt(entrada.nextLine());
+              }
+              
+              if(golpeMonstroJogador2 == 1){
+                  if(monstrosJogador2[monstroBatalhandoJog2 - 1].getForcaMonstro() > 0 && monstrosJogador1[monstroBatalhandoJog1 - 1].getDefesaMonstro() > 0){//if(monstrosJogador2[monstroBatalhandoJog2 - 1].getForcaMonstro() >= monstrosJogador1[monstroBatalhandoJog1 - 1].getDefesaMonstro()){
+
+                  monstrosJogador1[monstroBatalhandoJog1 - 1].setVidaMonstro(monstrosJogador1[monstroBatalhandoJog1 - 1].getVidaMonstro() - monstrosJogador2[monstroBatalhandoJog1 - 1].getPodertGolpeMonstro());
+
+                  if(monstrosJogador2[monstroBatalhandoJog2 - 1].getTipotGolpeMonstro() == "Grama" && monstrosJogador1[monstroBatalhandoJog1 - 1].getTipoMonstro() == "Agua" || monstrosJogador2[monstroBatalhandoJog2 - 1].getTipotGolpeMonstro() == "Agua" && monstrosJogador1[monstroBatalhandoJog1 - 1].getTipoMonstro() == "Fogo" || monstrosJogador2[monstroBatalhandoJog2 - 1].getTipotGolpeMonstro() == "Fogo" && monstrosJogador1[monstroBatalhandoJog1 - 1].getTipoMonstro() == "Grama" || monstrosJogador2[monstroBatalhandoJog2 - 1].getTipotGolpeMonstro() == "Ar" && monstrosJogador1[monstroBatalhandoJog1 - 1].getTipoMonstro() == "Terrestre" || monstrosJogador2[monstroBatalhandoJog2 - 1].getTipotGolpeMonstro() == "Terrestre" && monstrosJogador1[monstroBatalhandoJog1 - 1].getTipoMonstro() == "Eletrico" || monstrosJogador2[monstroBatalhandoJog2 - 1].getTipotGolpeMonstro() == "Eletrico" && monstrosJogador1[monstroBatalhandoJog1 - 1].getTipoMonstro() == "Ar"){
+                  
+                      monstrosJogador1[monstroBatalhandoJog1 - 1].setVidaMonstro(monstrosJogador1[monstroBatalhandoJog1 - 1].getVidaMonstro() - monstrosJogador2[monstroBatalhandoJog2 - 1].getPodertGolpeMonstro());
+                      
+                      System.out.println("SUPER EFETIVO!!!");
+
+
+                      superEfetivoJogador2 = 1;
+
+                      if(superEfetivoJogador2 == 1){
+                        if(monstrosJogador1[monstroBatalhandoJog1 - 1].getVidaMonstro() <= 0){
+                        System.out.println("\nMonstro do JOGADOR 1 sofreu dano \n\nDano recebido: " + monstrosJogador2[monstroBatalhandoJog2 - 1].getPodertGolpeMonstro()*2 + "\nMonstro eliminado...");
+
+                        monstrosVivosJogador1 -= 1;
+                          if(monstrosVivosJogador1 == 0){
+                          break;
+                        }
+
+                        System.out.println("\nJOGADOR 1, escolha o monstro que irá batalhar: ");
+                        System.out.println("(1) 1o monstro escolhido \n(2) 2o monstro escollhido \n(3) 3o monstro escolhido");
+                        
+                        monstroBatalhandoJog1 = Integer.parseInt(entrada.nextLine());
+                        
+                        while(monstroBatalhandoJog1 != 1 && monstroBatalhandoJog1 != 2 && monstroBatalhandoJog1 != 3 || monstrosJogador1[monstroBatalhandoJog1 - 1].getVidaMonstro() <= 0){
+                          System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Monstro desejado e que nao tenha sido eliminado: ");
+                          monstroBatalhandoJog1 = Integer.parseInt(entrada.nextLine());
+
+                        }
+
+                        }
+                        else{
+                          System.out.printf("\nMonstro do JOGADOR 1 sofreu dano \n\nDano recebido: " + monstrosJogador2[monstroBatalhandoJog2 - 1].getPodertGolpeMonstro()*2 + "\nPontos de vida atuais: " + monstrosJogador1[monstroBatalhandoJog1 - 1].getVidaMonstro());
+                        }
+                    }
+
+
+                  }
+
+                  if(superEfetivoJogador2 == 0){
+                    if(monstrosJogador1[monstroBatalhandoJog1 - 1].getVidaMonstro() <= 0){
+                    System.out.println("\nMonstro do JOGADOR 1 sofreu dano \n\nDano recebido: " + monstrosJogador2[monstroBatalhandoJog2 - 1].getPodertGolpeMonstro() + "\nMonstro eliminado...");
+
+                    monstrosVivosJogador1 -= 1;
+                    if(monstrosVivosJogador1 == 0){
+                      break;
+                    }
+
+                    System.out.println("\nJOGADOR 1, escolha o monstro que irá batalhar: ");
+                    System.out.println("(1) 1o monstro escolhido \n(2) 2o monstro escollhido \n(3) 3o monstro escolhido");
+                    
+                    monstroBatalhandoJog1 = Integer.parseInt(entrada.nextLine());
+                    
+                    while(monstroBatalhandoJog1 != 1 && monstroBatalhandoJog1 != 2 && monstroBatalhandoJog1 != 3 || monstrosJogador1[monstroBatalhandoJog1 - 1].getVidaMonstro() <= 0){
+                      System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Monstro desejado e que nao tenha sido eliminado: ");
+                      monstroBatalhandoJog1 = Integer.parseInt(entrada.nextLine());
+                    }
+
+                    
+                    }
+                    else{
+                      System.out.printf("\nMonstro do JOGADOR 1 sofreu dano \n\nDano recebido: " + monstrosJogador2[monstroBatalhandoJog2 - 1].getPodertGolpeMonstro() + "\nPontos de vida atuais: " + monstrosJogador1[monstroBatalhandoJog1 - 1].getVidaMonstro());
+                    }
+                  }
+                  superEfetivoJogador2 = 0;
+                }
+
+                else{
+                  System.out.println("Monstro do JOGADOR 2 não sofreu dano...");
+                }
+                  
+              }
+              
+              else if(golpeMonstroJogador2 == 2){
+                if(monstrosJogador2[monstroBatalhandoJog2 - 1].getForcaMonstro() > 0 && monstrosJogador1[monstroBatalhandoJog1 - 1].getDefesaMonstro() > 0){//if(monstrosJogador2[monstroBatalhandoJog2 - 1].getForcaMonstro() >= monstrosJogador1[monstroBatalhandoJog1 - 1].getDefesaMonstro()){
+
+                  monstrosJogador1[monstroBatalhandoJog1 - 1].setVidaMonstro(monstrosJogador1[monstroBatalhandoJog1 - 1].getVidaMonstro() - monstrosJogador2[monstroBatalhandoJog2 - 1].getPodertGolpeMonstro2());
+
+                  if(monstrosJogador2[monstroBatalhandoJog2 - 1].getTipotGolpeMonstro2() == "Grama" && monstrosJogador1[monstroBatalhandoJog1 - 1].getTipoMonstro() == "Agua" || monstrosJogador2[monstroBatalhandoJog2 - 1].getTipotGolpeMonstro2() == "Agua" && monstrosJogador1[monstroBatalhandoJog1 - 1].getTipoMonstro() == "Fogo" || monstrosJogador2[monstroBatalhandoJog2 - 1].getTipotGolpeMonstro2() == "Fogo" && monstrosJogador1[monstroBatalhandoJog1 - 1].getTipoMonstro() == "Grama" || monstrosJogador2[monstroBatalhandoJog2 - 1].getTipotGolpeMonstro2() == "Ar" && monstrosJogador1[monstroBatalhandoJog1 - 1].getTipoMonstro() == "Terrestre" || monstrosJogador2[monstroBatalhandoJog2 - 1].getTipotGolpeMonstro2() == "Terrestre" && monstrosJogador1[monstroBatalhandoJog1 - 1].getTipoMonstro() == "Eletrico" || monstrosJogador2[monstroBatalhandoJog2 - 1].getTipotGolpeMonstro2() == "Eletrico" && monstrosJogador1[monstroBatalhandoJog1 - 1].getTipoMonstro() == "Ar"){
+                  
+                      monstrosJogador1[monstroBatalhandoJog1 - 1].setVidaMonstro(monstrosJogador1[monstroBatalhandoJog1 - 1].getVidaMonstro() - monstrosJogador2[monstroBatalhandoJog2 - 1].getPodertGolpeMonstro2());
+                      System.out.println("SUPER EFETIVO!!!");
+
+
+
+                      superEfetivoJogador2 = 1;
+
+                      if(superEfetivoJogador2 == 1){
+                        if(monstrosJogador1[monstroBatalhandoJog1 - 1].getVidaMonstro() <= 0){
+                        System.out.println("\nMonstro do JOGADOR 1 sofreu dano \n\nDano recebido: " + monstrosJogador2[monstroBatalhandoJog2 - 1].getPodertGolpeMonstro2()*2 + "\nMonstro eliminado...");
+
+                        monstrosVivosJogador1 -= 1;
+                          if(monstrosVivosJogador1 == 0){
+                          break;
+                        }
+
+                        System.out.println("\nJOGADOR 1, escolha o monstro que irá batalhar: ");
+                        System.out.println("(1) 1o monstro escolhido \n(2) 2o monstro escollhido \n(3) 3o monstro escolhido");
+                        
+                        monstroBatalhandoJog1 = Integer.parseInt(entrada.nextLine());
+                        
+                        while(monstroBatalhandoJog1 != 1 && monstroBatalhandoJog1 != 2 && monstroBatalhandoJog1 != 3 || monstrosJogador1[monstroBatalhandoJog1 - 1].getVidaMonstro() <= 0){
+                          System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Monstro desejado e que nao tenha sido eliminado: ");
+                          monstroBatalhandoJog1 = Integer.parseInt(entrada.nextLine());
+
+                        }
+
+                        }
+                        else{
+                          System.out.printf("\nMonstro do JOGADOR 1 sofreu dano \n\nDano recebido: " + monstrosJogador2[monstroBatalhandoJog2 - 1].getPodertGolpeMonstro2()*2 + "\nPontos de vida atuais: " + monstrosJogador1[monstroBatalhandoJog1 - 1].getVidaMonstro());
+                        }
+                    }
+
+
+                  }
+
+                  if(superEfetivoJogador2 == 0){
+                    if(monstrosJogador1[monstroBatalhandoJog1 - 1].getVidaMonstro() <= 0){
+                    System.out.println("\nMonstro do JOGADOR 1 sofreu dano \n\nDano recebido: " + monstrosJogador2[monstroBatalhandoJog2 - 1].getPodertGolpeMonstro2() + "\nMonstro eliminado...");
+
+                    monstrosVivosJogador1 -= 1;
+                    if(monstrosVivosJogador1 == 0){
+                      break;
+                    }
+
+                    System.out.println("\nJOGADOR 1, escolha o monstro que irá batalhar: ");
+                    System.out.println("(1) 1o monstro escolhido \n(2) 2o monstro escollhido \n(3) 3o monstro escolhido");
+                    
+                    monstroBatalhandoJog1 = Integer.parseInt(entrada.nextLine());
+                    
+                    while(monstroBatalhandoJog1 != 1 && monstroBatalhandoJog1 != 2 && monstroBatalhandoJog1 != 3 || monstrosJogador1[monstroBatalhandoJog1 - 1].getVidaMonstro() <= 0){
+                      System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Monstro desejado e que nao tenha sido eliminado: ");
+                      monstroBatalhandoJog1 = Integer.parseInt(entrada.nextLine());
+                    }
+
+                    
+                    }
+                    else{
+                      System.out.printf("\nMonstro do JOGADOR 1 sofreu dano \n\nDano recebido: " + monstrosJogador2[monstroBatalhandoJog2 - 1].getPodertGolpeMonstro2() + "\nPontos de vida atuais: " + monstrosJogador1[monstroBatalhandoJog1 - 1].getVidaMonstro());
+                    }
+                  }
+                  superEfetivoJogador2 = 0;
+                  
+                }
+
+                else{
+                  System.out.println("Monstro do JOGADOR 2 não sofreu dano...");
+                }
+              
+              }
+              vezJogador1Atacar = 1;
+            }
+
+
           }
 
-
-
-          else if(acaoJogador2 == 1){
+          
+          if(acaoJogador2 == 1 || vezJogador2Atacar == 1){ 
+            
+            if(vezJogador2Atacar == 2){
+              continue;
+            }  
             
             System.out.println("\nJOGADOR 2, SELECIONE O GOLPE DESEJADO: \n(1) - Golpe 1 \n(2) - Golpe 2");
             golpeMonstroJogador2 = Integer.parseInt(entrada.nextLine());
@@ -478,9 +699,13 @@ public class JogoMonstroBatalha {
                 }
                 superEfetivoJogador2 = 0;
               }
+
+              else{
+                System.out.println("Monstro do JOGADOR 2 não sofreu dano...");
+              }
                 
             }
-            ///// VERIFICAR
+           
             else if(golpeMonstroJogador2 == 2){
               if(monstrosJogador2[monstroBatalhandoJog2 - 1].getForcaMonstro() > 0 && monstrosJogador1[monstroBatalhandoJog1 - 1].getDefesaMonstro() > 0){//if(monstrosJogador2[monstroBatalhandoJog2 - 1].getForcaMonstro() >= monstrosJogador1[monstroBatalhandoJog1 - 1].getDefesaMonstro()){
 
@@ -552,12 +777,185 @@ public class JogoMonstroBatalha {
                 superEfetivoJogador2 = 0;
                 
               }
+
+              else{
+                System.out.println("Monstro do JOGADOR 2 não sofreu dano...");
+              }
             
             }
 
+
+            if(vezJogador2Atacar == 1){
+
+              System.out.println("\nJOGADOR 1, SELECIONE O GOLPE DESEJADO: \n(1) - Golpe 1 \n(2) - Golpe 2");
+              golpeMonstroJogador1 = Integer.parseInt(entrada.nextLine());
+              
+              while(golpeMonstroJogador1 != 1 && golpeMonstroJogador1 != 2){
+              System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Golpe desejado: ");
+                    golpeMonstroJogador1 = Integer.parseInt(entrada.nextLine());
+              }
+              
+              if(golpeMonstroJogador1 == 1){
+                  if(monstrosJogador1[monstroBatalhandoJog1 - 1].getForcaMonstro() > 0 && monstrosJogador2[monstroBatalhandoJog2 - 1].getDefesaMonstro() > 0){//if(monstrosJogador1[monstroBatalhandoJog1 - 1].getForcaMonstro() >= monstrosJogador2[monstroBatalhandoJog2 - 1].getDefesaMonstro()){
+
+                  monstrosJogador2[monstroBatalhandoJog2 - 1].setVidaMonstro(monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro() - monstrosJogador1[monstroBatalhandoJog1 - 1].getPodertGolpeMonstro());
+
+                  if(monstrosJogador1[monstroBatalhandoJog1 - 1].getTipotGolpeMonstro() == "Grama" && monstrosJogador2[monstroBatalhandoJog2 - 1].getTipoMonstro() == "Agua" || monstrosJogador1[monstroBatalhandoJog1 - 1].getTipotGolpeMonstro() == "Agua" && monstrosJogador2[monstroBatalhandoJog2 - 1].getTipoMonstro() == "Fogo" || monstrosJogador1[monstroBatalhandoJog1 - 1].getTipotGolpeMonstro() == "Fogo" && monstrosJogador2[monstroBatalhandoJog2 - 1].getTipoMonstro() == "Grama" || monstrosJogador1[monstroBatalhandoJog1 - 1].getTipotGolpeMonstro() == "Ar" && monstrosJogador2[monstroBatalhandoJog2 - 1].getTipoMonstro() == "Terrestre" || monstrosJogador1[monstroBatalhandoJog1 - 1].getTipotGolpeMonstro() == "Terrestre" && monstrosJogador2[monstroBatalhandoJog2 - 1].getTipoMonstro() == "Eletrico" || monstrosJogador1[monstroBatalhandoJog1 - 1].getTipotGolpeMonstro() == "Eletrico" && monstrosJogador2[monstroBatalhandoJog2 - 1].getTipoMonstro() == "Ar"){
+                  
+                      monstrosJogador2[monstroBatalhandoJog2 - 1].setVidaMonstro(monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro() - monstrosJogador1[monstroBatalhandoJog1 - 1].getPodertGolpeMonstro());
+                      
+                      System.out.println("SUPER EFETIVO!!!");
+
+
+                      superEfetivoJogador1 = 1;
+
+                      if(superEfetivoJogador1 == 1){
+                        if(monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro() <= 0){
+                        System.out.println("\nMonstro do JOGADOR 2 sofreu dano \n\nDano recebido: " + monstrosJogador1[monstroBatalhandoJog1 - 1].getPodertGolpeMonstro()*2 + "\nMonstro eliminado...");
+
+                        monstrosVivosJogador2 -= 1;
+                          if(monstrosVivosJogador2 == 0){
+                          break;
+                        }
+
+                        System.out.println("\nJOGADOR 2, escolha o monstro que irá batalhar: ");
+                        System.out.println("(1) 1o monstro escolhido \n(2) 2o monstro escollhido \n(3) 3o monstro escolhido");
+                        
+                        monstroBatalhandoJog2 = Integer.parseInt(entrada.nextLine());
+                        
+                        while(monstroBatalhandoJog2 != 1 && monstroBatalhandoJog2 != 2 && monstroBatalhandoJog2 != 3 || monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro() <= 0){
+                          System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Monstro desejado e que nao tenha sido eliminado: ");
+                          monstroBatalhandoJog2 = Integer.parseInt(entrada.nextLine());
+
+                        }
+
+                        }
+                        else{
+                          System.out.printf("\nMonstro do JOGADOR 2 sofreu dano \n\nDano recebido: " + monstrosJogador1[monstroBatalhandoJog1 - 1].getPodertGolpeMonstro()*2 + "\nPontos de vida atuais: " + monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro());
+                        }
+                    }
+
+
+                  }
+
+                  if(superEfetivoJogador1 == 0){
+                    if(monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro() <= 0){
+                    System.out.println("\nMonstro do JOGADOR 2 sofreu dano \n\nDano recebido: " + monstrosJogador1[monstroBatalhandoJog1 - 1].getPodertGolpeMonstro() + "\nMonstro eliminado...");
+
+                    monstrosVivosJogador2 -= 1;
+                    if(monstrosVivosJogador2 == 0){
+                      break;
+                    }
+
+                    System.out.println("\nJOGADOR 2, escolha o monstro que irá batalhar: ");
+                    System.out.println("(1) 1o monstro escolhido \n(2) 2o monstro escollhido \n(3) 3o monstro escolhido");
+                    
+                    monstroBatalhandoJog2 = Integer.parseInt(entrada.nextLine());
+                    
+                    while(monstroBatalhandoJog2 != 1 && monstroBatalhandoJog2 != 2 && monstroBatalhandoJog2 != 3 || monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro() <= 0){
+                      System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Monstro desejado e que nao tenha sido eliminado: ");
+                      monstroBatalhandoJog2 = Integer.parseInt(entrada.nextLine());
+                    }
+
+                    
+                    }
+                    else{
+                      System.out.printf("\nMonstro do JOGADOR 2 sofreu dano \n\nDano recebido: " + monstrosJogador1[monstroBatalhandoJog1 - 1].getPodertGolpeMonstro() + "\nPontos de vida atuais: " + monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro());
+                    }
+                  }
+                  superEfetivoJogador1 = 0;
+                }
+                else{
+                  System.out.println("Monstro do JOGADOR 2 não sofreu dano...");
+                }
+                  
+              }
+              
+              else if(golpeMonstroJogador1 == 2){
+                if(monstrosJogador1[monstroBatalhandoJog1 - 1].getForcaMonstro() > 0 && monstrosJogador2[monstroBatalhandoJog2 - 1].getDefesaMonstro() > 0){//if(monstrosJogador1[monstroBatalhandoJog1 - 1].getForcaMonstro() >= monstrosJogador2[monstroBatalhandoJog2 - 1].getDefesaMonstro()){
+
+                  monstrosJogador2[monstroBatalhandoJog2 - 1].setVidaMonstro(monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro() - monstrosJogador1[monstroBatalhandoJog1 - 1].getPodertGolpeMonstro2());
+
+                  if(monstrosJogador1[monstroBatalhandoJog1 - 1].getTipotGolpeMonstro2() == "Grama" && monstrosJogador2[monstroBatalhandoJog2 - 1].getTipoMonstro() == "Agua" || monstrosJogador1[monstroBatalhandoJog1 - 1].getTipotGolpeMonstro2() == "Agua" && monstrosJogador2[monstroBatalhandoJog2 - 1].getTipoMonstro() == "Fogo" || monstrosJogador1[monstroBatalhandoJog1 - 1].getTipotGolpeMonstro2() == "Fogo" && monstrosJogador2[monstroBatalhandoJog2 - 1].getTipoMonstro() == "Grama" || monstrosJogador1[monstroBatalhandoJog1 - 1].getTipotGolpeMonstro2() == "Ar" && monstrosJogador2[monstroBatalhandoJog2 - 1].getTipoMonstro() == "Terrestre" || monstrosJogador1[monstroBatalhandoJog1 - 1].getTipotGolpeMonstro2() == "Terrestre" && monstrosJogador2[monstroBatalhandoJog2 - 1].getTipoMonstro() == "Eletrico" || monstrosJogador1[monstroBatalhandoJog1 - 1].getTipotGolpeMonstro2() == "Eletrico" && monstrosJogador2[monstroBatalhandoJog2 - 1].getTipoMonstro() == "Ar"){
+                  
+                      monstrosJogador2[monstroBatalhandoJog2 - 1].setVidaMonstro(monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro() - monstrosJogador1[monstroBatalhandoJog1 - 1].getPodertGolpeMonstro2());
+                      System.out.println("SUPER EFETIVO!!!");
+
+
+
+                      superEfetivoJogador1 = 1;
+
+                      if(superEfetivoJogador1 == 1){
+                        if(monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro() <= 0){
+                        System.out.println("\nMonstro do JOGADOR 2 sofreu dano \n\nDano recebido: " + monstrosJogador1[monstroBatalhandoJog1 - 1].getPodertGolpeMonstro2()*2 + "\nMonstro eliminado...");
+
+                        monstrosVivosJogador2 -= 1;
+                          if(monstrosVivosJogador2 == 0){
+                          break;
+                        }
+
+                        System.out.println("\nJOGADOR 2, escolha o monstro que irá batalhar: ");
+                        System.out.println("(1) 1o monstro escolhido \n(2) 2o monstro escollhido \n(3) 3o monstro escolhido");
+                        
+                        monstroBatalhandoJog2 = Integer.parseInt(entrada.nextLine());
+                        
+                        while(monstroBatalhandoJog2 != 1 && monstroBatalhandoJog2 != 2 && monstroBatalhandoJog2 != 3 || monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro() <= 0){
+                          System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Monstro desejado e que nao tenha sido eliminado: ");
+                          monstroBatalhandoJog2 = Integer.parseInt(entrada.nextLine());
+
+                        }
+
+                        }
+                        else{
+                          System.out.printf("\nMonstro do JOGADOR 2 sofreu dano \n\nDano recebido: " + monstrosJogador1[monstroBatalhandoJog1 - 1].getPodertGolpeMonstro2()*2 + "\nPontos de vida atuais: " + monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro());
+                        }
+                    }
+
+
+                  }
+
+                  if(superEfetivoJogador1 == 0){
+                    if(monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro() <= 0){
+                    System.out.println("\nMonstro do JOGADOR 2 sofreu dano \n\nDano recebido: " + monstrosJogador1[monstroBatalhandoJog1 - 1].getPodertGolpeMonstro2() + "\nMonstro eliminado...");
+
+                    monstrosVivosJogador2 -= 1;
+                    if(monstrosVivosJogador2 == 0){
+                      break;
+                    }
+
+                    System.out.println("\nJOGADOR 2, escolha o monstro que irá batalhar: ");
+                    System.out.println("(1) 1o monstro escolhido \n(2) 2o monstro escollhido \n(3) 3o monstro escolhido");
+                    
+                    monstroBatalhandoJog2 = Integer.parseInt(entrada.nextLine());
+                    
+                    while(monstroBatalhandoJog2 != 1 && monstroBatalhandoJog2 != 2 && monstroBatalhandoJog2 != 3 || monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro() <= 0){
+                      System.out.println("OPCAO INVALIDA! TENTE NOVAMENTE. Digite o numero do Monstro desejado e que nao tenha sido eliminado: ");
+                      monstroBatalhandoJog2 = Integer.parseInt(entrada.nextLine());
+                    }
+
+                    
+                    }
+                    else{
+                      System.out.printf("\nMonstro do JOGADOR 2 sofreu dano \n\nDano recebido: " + monstrosJogador1[monstroBatalhandoJog1 - 1].getPodertGolpeMonstro2() + "\nPontos de vida atuais: " + monstrosJogador2[monstroBatalhandoJog2 - 1].getVidaMonstro());
+                    }
+                  }
+                  superEfetivoJogador1 = 0;
+                  
+                }
+
+                else{
+                  System.out.println("Monstro do JOGADOR 2 não sofreu dano...");
+                }
+              
+              }
+
+              vezJogador2Atacar = 0;
+
+            }
+
+
           }
 
-          
 
         }
 
@@ -571,9 +969,5 @@ public class JogoMonstroBatalha {
         
 
     }
-        
-        //System.out.println();
-        
-    
-            
+                    
 }
